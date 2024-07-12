@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-container>
+    <v-row>
+      <v-col cols="12">
+        <TextTags :tags="tags" alignment="left" />
+      </v-col>
+      <v-col cols="12">
+        <TextTags :tags="tags" alignment="justify" />
+      </v-col>
+      <v-col cols="6">
+        <TextTags :tags="tags" alignment="left" />
+      </v-col>
+      <v-col cols="6">
+        <TextTags :tags="tags" alignment="justify" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TextTags from './components/TextTags.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    TextTags,
+  },
+  data() {
+    return {
+      tags: [
+        { text: 'бум' },
+        { text: 'бам', icon: 'mdi-star' },
+        { text: 'пих' },
+        { text: 'пах', icon: 'mdi-heart' },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  font-family: Roboto, sans-serif;
 }
 </style>
